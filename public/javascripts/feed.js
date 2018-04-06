@@ -15,7 +15,7 @@ $(document).ready(function () {
      * When the page loads (or is refreshed) we request all comments from the server
      */
     function getComments() {
-        $.get("/getComments", function(data) {
+        $.get("/comments/getComments", function(data) {
             var posts = "";
 
             for(var i = 0; i < data.length; i++) {
@@ -46,7 +46,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         if(event.target.inputPost.value) {
-            $.post("/addComment", {
+            $.post("/comments/addComment", {
                 comment: event.target.inputPost.value
             }, function (result) {
                 $("#charRemaining").html(totalCharacters);
@@ -79,10 +79,10 @@ $(document).ready(function () {
      * Event handler for when the user edits a comment(MY VERSION)
      */
     function updateComment(event) {
-        var newComment;
+        var newComment = "This is a new comment";
         var oldComment;
         
-        $.get('/getComment/' + event.target.name, function(data) {
+        $.get('/comments/getComment/' + event.target.name, function(data) {
             oldComment = data[0].comment;
         });
 
@@ -90,11 +90,10 @@ $(document).ready(function () {
 
         if(newComment) {
             $.ajax({
-                url: '/updateComment/' + event.target.name,
-                type: 'PUT',
+                url: '/comments/updateComment/' + event.target.name,
+                type: 'PATCH',
                 data: {comment: newComment},
                 success: function(result) {
-                    console.log('put in comment');
                     getComments();
                 }
             });
@@ -106,7 +105,7 @@ $(document).ready(function () {
      */
     function deleteComment(name) {
         $.ajax({
-            url: '/removeComment/' + name,
+            url: '/comments/removeComment/' + name,
             type: 'DELETE',
             success: function(result) {
                 getComments();
