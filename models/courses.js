@@ -3,9 +3,9 @@ var Schema = mongoose.Schema;
 require('./util');
 
 var coursesSchema = new Schema({
-    college: {type: String},
-    course_name: {type: String},
-    course_code: {type: String},
+    college_abbreviation: {type: String, require: true},
+    course_name: {type: String, required: true},
+    course_code: {type: String, required: true},
     course_leader: {type: String},
     date_created: {type: Date, default: new Date()},
 });

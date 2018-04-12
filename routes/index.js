@@ -1,38 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
+var checkAuth = require('../middleware/check-auth');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Notezy' });
+  res.render('index', { title: 'Notezy' });
+});
+
+/* GET college page. */
+router.get('/colleges', function (req, res, next) {
+  res.render('list-colleges');
 });
 
 /* GET feed page. */
-router.get('/feed', function (req, res, next) {
-    /*try {
-        var jwtString = req.cookies.Authorization.split(" ");
-        var profile = verifyJwt(jwtString[1]);
-        if (profile) {
-            res.render('feed');
-        }
-    }catch (err) {
-        res.json({
-            "status": "error",
-            "body": [
-                "You are not logged in."
-            ]
-        });
-    }*/
-    res.render('feed');
+router.get('/feed', checkAuth, function (req, res, next) {
+  res.render('feed');
 });
 
-/*
- Verifies a JWT
- */
-function verifyJwt(jwtString) {
+/* GET login/register page. */
+router.get('/login', function (req, res, next) {
+  res.render('login');
+});
 
-    var value = jwt.verify(jwtString, 'CSIsTheWorst');
-    return value;
-}
+/* GET profile page. */
+router.get('/profile', checkAuth, function(req, res, next) {
+  res.render('profile');
+})
 
 module.exports = router;

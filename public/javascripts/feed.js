@@ -86,12 +86,11 @@ $(document).ready(function () {
             oldComment = data[0].comment;
         });
 
-        
 
         if(newComment) {
             $.ajax({
                 url: '/comments/updateComment/' + event.target.name,
-                type: 'PATCH',
+                type: 'PUT',
                 data: {comment: newComment},
                 success: function(result) {
                     getComments();
