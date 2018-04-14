@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var Module = require('../models/modules');
+var posts = require('../routes/posts');
+var checkModule = require('../middleware/check-module')
+
+/* GET modules listing. */
+router.get('/', function(req, res, next) {
+  res.render('list-modules');
+});
 
 /**
- * Returns a single module from our database(MY VERSION)
+ * Returns a single module from our database
  */
 router.get('/getModule/:id', function (req, res, next) {
     var id = req.params.id;
@@ -77,5 +84,7 @@ router.delete('/removeModule/:id', function (req, res, next) {
         });
     });
 });
+
+router.use('/:module_code', checkModule, posts);  //Checks to see if the module exists and then passes it to posts
 
 module.exports = router;

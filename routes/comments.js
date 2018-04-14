@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var Comment = require('../models/comments');
+var checkAuth = require('../middleware/check-auth');
+
+/* GET users listing. */
+router.get('/', function (req, res, next) {
+    res.send('respond with a resource');
+});
 
 /**
  * Returns a single comment from our database(MY VERSION)
