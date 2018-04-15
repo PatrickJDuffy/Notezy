@@ -10,9 +10,7 @@ module.exports = function (req, res, next) {
     if (module) {                    //Checks to see if the module exists
       next();
     } else {
-      res.status(500).json({
-        status: "Module doesn't exist"
-      })
+      res.render('errors/err-module')
     }
   });
 };
