@@ -9,6 +9,8 @@ $(document).ready(function () {
     var fields = path.split('/')
     var college = fields[2].toUpperCase();      //Retrieves the college from the path name
 
+$("#collegeAbbr").text(college);
+  
     $.get(path + "/getCourses", function (data) {
       var courses = "";
 

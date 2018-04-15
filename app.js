@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var checkAuth = require('./middleware/check-auth');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 var comments = require('./routes/comments')
 var posts = require('./routes/posts');
 var colleges = require('./routes/colleges');
+var courses = require('./routes/courses');
+var aboutus = require('./routes/aboutus');
+var modules = require('./routes/modules');
 
 var app = express();
 
@@ -30,7 +32,12 @@ app.use('/uploads', express.static('uploads'));           //Makes the uploads fo
 app.use('/', index);
 app.use('/users', users);
 app.use('/comments', comments);
+app.use('/posts', posts);
+app.use('/aboutus', aboutus);
 app.use('/colleges', colleges);
+app.use('/colleges/courses', courses);
+
+app.use('/colleges/courses/modules', modules);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 var Post = require('../models/posts');
-var checkPost = require('../middleware/check-post');
 var multer = require('multer');         //Module to upload files to the database
 
 /**
@@ -48,12 +47,8 @@ router.get('/', function (req, res, next) {
   res.render('list-posts');
 });
 
-router.get('/createPost', function(req, res, next) {   //Renders the page for the client to create a post
-  res.render('create-post');
-});
-
 /**
- * Returns a single post from the database based on ID
+ * Returns a single post from the database
  */
 router.get('/getPost/:id', function (req, res, next) {
   var id = req.params.id;
@@ -137,24 +132,6 @@ router.delete('/removePost/:id', function (req, res, next) {
     res.status(405).json({
       status: "Successfully removed the post"
     });
-  });
-});
-
-router.get('/:post_title', checkPost, function(req, res, next) {        //Checks to see if the post exists and renders the single-post page
-  res.render('single-post');
-});
-
-/**
- * Returns a single post from the database based on post title
- */
-router.get('/:post_title/getPost', function (req, res, next) {
-  var postTitle = req.params.post_title;
-
-  Post.findOne({ post_title: postTitle }, function (err, post) {
-    if (err)
-      res.status(500).json(err);
-
-    res.status(200).json(post);
   });
 });
 

@@ -6,7 +6,7 @@ require('./util');
 var usersSchema = new Schema({
     user_name: { type: String, required: true },
     password: { type: String, required: true },
-    profile_pic: { type: String},
+    fb_id: { type: String, default: null },
     access_token: { type: String }
 });
 

@@ -10,7 +10,9 @@ module.exports = function (req, res, next) {
     if (course) {                    //Checks to see if the course exists
       next();
     } else {
-      res.render('errors/err-course')
+      res.status(500).json({
+        status: "Course doesn't exist"
+      })
     }
   });
 };

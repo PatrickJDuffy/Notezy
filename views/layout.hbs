@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +15,9 @@
 
   <!-- Custom styles for this template -->
   <link href="/stylesheets/main.css" rel="stylesheet">
+
+{{!-- Template for navigated pages --}}
+  <link href="/stylesheets/navstyle.css" rel="stylesheet">
 
   <!-- Fonts from Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
@@ -47,13 +49,17 @@
             <a href="/colleges">Colleges</a>
           </li>
           <li>
+            <a href="/aboutus">About Us</a>
+          </li>
+          <li>
             <a href="/feed">Feeds</a>
           </li>
+          
           <li id="login-li">
             <a href="/login">Login/Sign Up</a>
           </li>
           <li class="hide" id="profile-li">
-            <a href="#" id="profile-a">Profile</a>
+            <a href="/profile">Profile</a>
           </li>
           <li class="hide" id="logout-li">
             <a href="#" id="logout">Logout</a>
@@ -81,7 +87,9 @@
   <script src="/javascripts/list-modules.js"></script>
   <script src="/javascripts/list-posts.js"></script>
   <script src="/javascripts/single-post.js"></script>
-  <script src="/javascripts/create-post.js"></script>
+  <script src="/javascripts/aboutus.js"></script>
+  
+
   <!--- Sweet Alerts --->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.min.js"></script>
   <!--- Javascript Cookies --->

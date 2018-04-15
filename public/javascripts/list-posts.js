@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  $("a#create-post-btn").attr("href", window.location.pathname + "/createPost");
   getPosts();
 
   /**
@@ -10,19 +9,17 @@ $(document).ready(function () {
     var fields = path.split('/')
     var module = fields[4].toUpperCase();      //Retrieves the module from the path name
 
+    $("#moduleCode").text(module);
+
     $.get(path + "/getPosts", function (data) {
       var posts = "";
 
       for (var i = 0; i < data.length; i++) {
         if (module === data[i].module_code) {                 //Only adds posts that with the module in the path name
-          posts += "<a href='" + path + "/" + data[i].post_title + "'><div class='panel panel-default'>" +
+          posts += "<a href='/colleges'><div class='panel panel-default'>" +
             "<div class='panel-heading'>" + data[i].post_title + "</div>" +
-            "<div class='panel-body'>" + data[i].post_content + "</div></div></a><br>"
+            "<div class='panel-body'>" + data[i].post_content + "</div></div></a>"
         }
-      }
-
-      if(posts === "") {                                          //Alters the heading if there is no posts
-        $("#posts").prev().text("There are currently no posts for this module!");
       }
 
       $("#list-posts").html(posts);

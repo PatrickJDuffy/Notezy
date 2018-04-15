@@ -9,7 +9,10 @@ function verifyJWT(req, res, next) {
       next();
     }
   } catch (err) {
-    res.render('errors/err-login')
+    res.status(500).json({
+      status: "error",
+      body: "You are not logged in"
+    })
   }
 };
 
