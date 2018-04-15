@@ -20,10 +20,3 @@ $(document).ready(function () {
   }
 });
 
-for (var i = 0; i < data.length; i++) {
-  colleges += "<div id='collegewrap'><div class='container'><div class='row'><div class='col-lg-3'><img src='/images/nuig.jpg' class='img-thumbnail'></div><div class='col-lg-9'><a href='/colleges/" + data[i].college_abbreviation + "'>" +
-    "<figure class='figure'><img src=''" + data[i].college_image + " class='figure-img img-fluid rounded' " +
-    "alt='A generic square placeholder image with rounded corners in a figure.'>" +
-    "<figcaption class='figure-caption'>" + data[i].college_name + "</figcaption>" +
-    "<p>" + data[i].description + "</p></figure></a></div></div></div></div>"
-}

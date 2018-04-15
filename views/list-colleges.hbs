@@ -1,20 +1,31 @@
 <div id="navwrap">
+  {{!-- Wrap for navigating back and forth through pervious pages etc --}}
   <div class="container-fluid pathstyle">
-    <div class="row">
-      <div class="col-lg-3">
+
+    {{!-- container to hold page name and breadcrumb path --}}
+    <div class="row" style="path">
+
+      <div class="col-lg-2">
+        {{!-- college --}}
         <a href="/colleges">
-          <h2>Colleges</h2>
+          <h1 class="title">Colleges</h1>
         </a>
       </div>
-      <div id="sitepathwrap" style="path col-lg-9">
 
-        {{!-- path such as name of college(and link back) selected, updated with courses aswell --}}
+
+      <div class="col-lg-10">
+        <div id="sitepathwrap" class="">
+
+        </div>
       </div>
     </div>
   </div>
 </div>
+</div>
+
 <div id="bottompagewrap">
   <div class="panel-group" id="colleges">
   </div>
 </div>
 <!-- /pagewrap -->
+  <script src="/javascripts/list-colleges.js"></script>

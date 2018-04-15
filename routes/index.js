@@ -23,6 +23,11 @@ router.get('/login', function (req, res, next) {
   res.render('login');
 });
 
+/* GET about us page. */
+router.get('/aboutus', function (req, res, next) {
+  res.render('aboutus');
+});
+
 /* GET profile page. */
 router.get('/profile', checkAuth, function(req, res, next) {
   res.render('profile');

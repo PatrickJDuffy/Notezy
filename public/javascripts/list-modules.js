@@ -1,16 +1,17 @@
 $(document).ready(function () {
   getModules();
-
+  
   /**
    * Retrieves the modules for that course from the databases
    */
-  function getModules() {
+  function getModules() { 
+    $("a#modBack").attr("href", window.location.pathname);
     var path = window.location.pathname
     var fields = path.split('/')
     var course = fields[3].toUpperCase();      //Retrieves the course from the path name
 
     $("#courseName").text(course);
-
+ 
     $.get(path + "/getModules", function (data) {
       var modules = "";
 

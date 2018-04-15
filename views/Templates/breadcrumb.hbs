@@ -1,0 +1,91 @@
+<div id="navwrap">
+  {{!-- Wrap for navigating back and forth through pervious pages etc --}}
+  <div class="container-fluid pathstyle">
+
+    {{!-- container to hold page name and breadcrumb path --}}
+    <div class="row" style="path">
+
+      <div class="col-lg-2">
+        <a href="#">
+          <h1 class="title">Post</h1>
+        </a>
+      </div>
+
+
+      <div class="col-lg-10">
+          {{!-- <ul class="breadcrumb"> --}}
+            <div class="row">
+              <div class="col-lg-3">
+                  {{!-- College crumb --}}
+                  <div class="centered">
+                    <li class="item home">
+                      <a id="collegeBack" title="Back to Courses">
+                        <button class="button content">
+                          <span>
+                            <h5 id="collegeAbbr">
+                              {{!-- Abbrebiation --}}
+                            </h5>
+                          </span>
+                        </button>
+                      </a>
+                    </li>
+                  </div>
+                </div>
+
+              <div class="col-lg-3">
+                  {{!-- College crumb --}}
+                  <div class="centered">
+                    <li class="item home">
+                      <a id="courseBack" title="Back to Modules">
+                        <button class="button content">
+                          <span>
+                            <h5 id="courseName">
+                              {{!-- Abbrebiation --}}
+                            </h5>
+                          </span>
+                        </button>
+                      </a>
+                    </li>
+                  </div>
+                </div>
+              <div class="col-lg-3">
+                  {{!-- College crumb --}}
+                  <div class="centered">
+                    <li class="item home">
+                      {{!-- <a href="/"> --}}
+                        <a id="modBack" title="Back to Posts">
+                          <button class="button content">
+                            <span>
+                              <h5 id="modCode">
+                                {{!-- Abbrebiation --}}
+                              </h5>
+                            </span>
+                          </button>
+                        </a>
+                      {{!-- </a> --}}
+                    </li>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  {{!-- College crumb --}}
+                  <div class="centered">
+                    <li class="item home">
+                      <a href="#" title="Get full name of college">
+                        <button class="button content">
+                          <span>
+                            <h5 id="postName">
+                              {{!-- Abbrebiation --}}
+                            </h5>
+                          </span>
+                        </button>
+                      </a>
+                    </li>
+                  </div>
+                </div>
+            </div>
+          {{!-- </ul> --}}
+        
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,9 +7,10 @@ $(document).ready(function () {
   function getCourses() {
     var path = window.location.pathname
     var fields = path.split('/')
+    var collegeBack = fields[1] + "/" + fields[2];  
     var college = fields[2].toUpperCase();      //Retrieves the college from the path name
 
-$("#collegeAbbr").text(college);
+    $("#collegeAbbr").text(college);
   
     $.get(path + "/getCourses", function (data) {
       var courses = "";

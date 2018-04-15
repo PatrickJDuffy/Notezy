@@ -10,7 +10,6 @@ $(document).ready(function () {
     var fields = path.split('/')
     var module = fields[4].toUpperCase();      //Retrieves the module from the path name
 
-    
     $.get(path + "/getPosts", function (data) {
       var posts = "";
 

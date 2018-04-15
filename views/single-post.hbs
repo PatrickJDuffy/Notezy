@@ -1,3 +1,4 @@
+<script style="hbs" src="views/breadcrumb.hbs"></script>
 <div id="navwrap">
   {{!-- Wrap for navigating back and forth through pervious pages etc --}}
   <div class="container-fluid pathstyle">
@@ -6,74 +7,104 @@
     <div class="row" style="path">
 
       <div class="col-lg-2">
-        <h2>Courses</h2>
+        <a href="#">
+          <h1 class="title">Post</h1>
+        </a>
       </div>
 
 
       <div class="col-lg-10">
-        <div id="sitepathwrap" class="">
-          {{!--
-          <div class="row"> --}} {{!-- row to hold/generate path and links back --}}
-            <ul class="breadcrumb">
-              <div class="row">
-                <div class="col-lg-3">
-                  <div class="container">
-                    <li class="item home">
-                      <a href="#" title="Get full name of college">
+        <ul class="breadcrumb">
+          <div class="row">
+            <div class="col-lg-3">
+              {{!-- College crumb --}}
+              <div class="centered">
+                <li class="item home">
+                  {{!-- Link back to College list --}}
+                  <a id="collegeBack" title="Back to Courses">
+                    <button class="button content">
+                      <span>
                         <h5 id="collegeAbbr">
-
+                          {{!-- College Abbrebiation --}}
                         </h5>
-                      </a>
-                      
-                    </li>
-                  </div>
-                </div>
-
-                <div class="col-lg-3">
-                  <div class="container">
-                    <li class="item home">
-                      <a href="#" title="Get full name of college">
-                        <h5 id="courseName">
-
-                        </h5>
-                      </a>
-                      
-                    </li>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="container">
-                    <li class="item home">
-                      <a href="#" title="Get full name of college">
-                        <h5 id="moduleCode">
-
-                        </h5>
-                      </a>
-                      
-                    </li>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="container">
-                    <li class="item home">
-                      <a href="#" title="Get full name of college">
-                        <h5 id="postid">
-                          {{!-- Name of post displayed --}}
-                        </h5>
-                      </a>
-                    </li>
-                  </div>
-                </div>
+                      </span>
+                    </button>
+                  </a>
+                </li>
               </div>
-            </ul>
+            </div>
+
+            <div class="col-lg-3">
+              {{!-- Course crumb --}}
+              <div class="centered">
+                <li class="item home">
+                  {{!-- Link back to Course Modules --}}
+                  <a id="courseBack" title="Back to Modules">
+                    <button class="button content">
+                      <span>
+                        <h5 id="courseName">
+                          {{!-- Course Code --}}
+                        </h5>
+                      </span>
+                    </button>
+                  </a>
+                </li>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              {{!-- Module crumb --}}
+              <div class="centered">
+                <li class="item home">
+                  {{!-- Link Back to Module Posts --}}
+                  <a id="modBack" title="Back to Posts">
+                    <button class="button content">
+                      <span>
+                        <h5 id="modCode">
+                          {{!-- Module Code --}}
+                        </h5>
+                      </span>
+                    </button>
+                  </a>
+
+                </li>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              {{!-- Post crumb --}}
+              <div class="centered">
+                <li class="item home">
+                  <a href="#" title="Post">
+                    <button class="button content">
+                      <span>
+                        <h5 id="postName">
+                          {{!-- Name of Post --}}
+                        </h5>
+                      </span>
+                    </button>
+                  </a>
+                </li>
+              </div>
+            </div>
           </div>
-        </div>
+        </ul>
+
       </div>
     </div>
   </div>
 </div>
 
 <div id="bottompagewrap">
-  <div class="panel-group" id="post">
+  <div class="container">
+    <div id="post-title">
+    </div>
+    <div class="well well-xs">
+      <div class="row">
+        <div class="col-xs-12" id="post-content">
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
+
+<script src="/javascripts/single-post.js"></script>
