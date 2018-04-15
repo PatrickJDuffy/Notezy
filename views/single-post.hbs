@@ -1,102 +1,11 @@
-<script style="hbs" src="views/breadcrumb.hbs"></script>
-<div id="navwrap">
-  {{!-- Wrap for navigating back and forth through pervious pages etc --}}
-  <div class="container-fluid pathstyle">
+<div class="container-fluid">
 
-    {{!-- container to hold page name and breadcrumb path --}}
-    <div class="row" style="path">
-
-      <div class="col-lg-2">
-        <a href="#">
-          <h1 class="title">Post</h1>
-        </a>
-      </div>
-
-
-      <div class="col-lg-10">
-        <ul class="breadcrumb">
-          <div class="row">
-            <div class="col-lg-3">
-              {{!-- College crumb --}}
-              <div class="centered">
-                <li class="item home">
-                  {{!-- Link back to College list --}}
-                  <a id="collegeBack" title="Back to Courses">
-                    <button class="button content">
-                      <span>
-                        <h5 id="collegeAbbr">
-                          {{!-- College Abbrebiation --}}
-                        </h5>
-                      </span>
-                    </button>
-                  </a>
-                </li>
-              </div>
-            </div>
-
-            <div class="col-lg-3">
-              {{!-- Course crumb --}}
-              <div class="centered">
-                <li class="item home">
-                  {{!-- Link back to Course Modules --}}
-                  <a id="courseBack" title="Back to Modules">
-                    <button class="button content">
-                      <span>
-                        <h5 id="courseName">
-                          {{!-- Course Code --}}
-                        </h5>
-                      </span>
-                    </button>
-                  </a>
-                </li>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              {{!-- Module crumb --}}
-              <div class="centered">
-                <li class="item home">
-                  {{!-- Link Back to Module Posts --}}
-                  <a id="modBack" title="Back to Posts">
-                    <button class="button content">
-                      <span>
-                        <h5 id="modCode">
-                          {{!-- Module Code --}}
-                        </h5>
-                      </span>
-                    </button>
-                  </a>
-
-                </li>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              {{!-- Post crumb --}}
-              <div class="centered">
-                <li class="item home">
-                  <a href="#" title="Post">
-                    <button class="button content">
-                      <span>
-                        <h5 id="postName">
-                          {{!-- Name of Post --}}
-                        </h5>
-                      </span>
-                    </button>
-                  </a>
-                </li>
-              </div>
-            </div>
-          </div>
-        </ul>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="bottompagewrap">
   <div class="container">
     <div id="post-title">
     </div>
+  </div>
+
+  <div class="container">
     <div class="well well-xs">
       <div class="row">
         <div class="col-xs-12" id="post-content">
@@ -105,6 +14,65 @@
     </div>
   </div>
 
+  <div class="container hide">
+    <h4>Attached Files</h4>
+    <div class="list-group" id="post-files">
+    </div>
+  </div>
+
+  <div class="container col-xs-offset-8" id="post-footer">
+  </div>
 </div>
 
+<hr>
+
+<div class="container">
+  <div class="row col-xs-12">
+    <button type="button" class="btn btn-danger" id="btn-count">
+      Comments
+      <span class="badge badge-light" id="count">0</span>
+    </button>
+  </div>
+</div>
+
+<br>
+
+<div class="continer">
+  <div class="row col-sm-8 col-sm-offset-2" id="feedComments">
+  </div>
+
+  <div class="row col-xs-10 col-xs-offset-1">
+    <form class="form-horizontal" role="form" id="commentForm">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-xs-12">
+            <textarea class="form-control required" style="min-width: 100%" rows="2" id="inputComment" placeholder="Got something to add?"
+              maxlength="140"></textarea>
+            <label id="charRemaining" for="inputComment">140</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-3">
+          <!--Camera-->
+          <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-3">
+          <!--Video-->
+          <i class="fa fa-video-camera fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-3">
+          <i class="fa fa-bar-chart fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-3">
+          <a href="#" data-toggle="popover" data-placement="bottom" data-content="Please enter a comment ...">
+            <button type="text" class="btn btn-warning">Comment</button>
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/javascripts/feed.js"></script>
 <script src="/javascripts/single-post.js"></script>

@@ -1,63 +1,6 @@
-<div id="navwrap">
-  {{!-- Wrap for navigating back and forth through pervious pages etc --}}
-  <div class="container-fluid pathstyle">
-
-    {{!-- container to hold page name and breadcrumb path --}}
-    <div class="row" style="path">
-
-      <div class="col-lg-2">
-        {{!-- college --}}
-        <a href="#"><h1 class="title">Create Posts</h1></a>
-      </div>
-
-
-      <div class="col-lg-10">
-        <div id="sitepathwrap" class="">
-          <ul class="breadcrumb">
-            <div class="row">
-              <div class="col-lg-3">
-                <div class="container">
-                  <li class="item home">
-                    <a href="#" title="Get full name of college">
-                      <h5 id="collegeAbbr">
-
-                      </h5>
-                      <div id="collegeabbr"></div>
-                    </a>
-
-                  </li>
-                </div>
-              </div>
-
-              <div class="col-lg-3">
-                <div class="container">
-                  <li class="item home">
-                    <a href="#" title="Get full name of college">
-                      <h5 id="courseName">
-
-                      </h5>
-                    </a>
-
-                  </li>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="container">
-                  <li class="item home">
-                    <a href="#" title="Get full name of college">
-                      <h5 id="moduleCode">
-
-                      </h5>
-                    </a>
-
-                  </li>
-                </div>
-              </div>
-            </div>
-          </ul>
-        </div>
-      </div>
-    </div>
+<div class="container-fluid">
+  <div class="col-xs-offset-2">
+    <h1>Create a Post</h1>
   </div>
 </div>
 
@@ -95,7 +38,7 @@
             <div class="col-xs-7">
             </div>
             <div class="col-xs-2">
-              <a href="#" data-toggle="popover" data-placement="bottom" data-content="Please enter your post...">
+              <a href="#" data-toggle="popover" data-placement="bottom" data-content="Missing something... Perhaps a title or description" id="btn-post">
                 <button type="text" class="btn btn-warning btn-lg">Post</button>
               </a>
             </div>

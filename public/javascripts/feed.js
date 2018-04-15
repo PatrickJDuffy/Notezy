@@ -1,11 +1,11 @@
 $(document).ready(function () {
     var totalCharacters = 140;
-    var showPosts = true;
+    var showComments = true;
 
     /**
      * Calculates the remaining characters and changes the html label with #charRemaining
      */
-    $("#postForm").keyup(function (event) {
+    $("#commentForm").keyup(function (event) {
         var inputText = event.target.value;
         $("#charRemaining").html(totalCharacters - inputText.length);
     });
@@ -16,23 +16,23 @@ $(document).ready(function () {
      */
     function getComments() {
         $.get("/comments/getComments", function(data) {
-            var posts = "";
+            var comments = "";
 
             for(var i = 0; i < data.length; i++) {
-                posts += "<div class='well'><div class='row'><div class='col-xs-9'>"
+                comments += "<div class='well'><div class='row'><div class='col-xs-9'>"
                     + data[i].comment + "</div><div class='col-xs-1'><button type='button' name='" +
                     data[i]._id + "' class='btn btn-success' id='e-btn'>Edit</button></div><div class='col-xs-1'>" +
                     "<button type='button' name='" + data[i]._id + "' class='btn btn-danger' id='d-btn'>" + 
                     "Delete</button></div></div></div></div>";
             }
 
-            $("#feedPosts").html(posts);
+            $("#feedComments").html(comments);
             $("#count").html(data.length);
 
-            if (!showPosts)
-                $("#feedPosts").hide();
+            if (!showComments)
+                $("#feedComments").hide();
             else
-                $("#feedPosts").show();
+                $("#feedComments").show();
 
             // Recursively call getComments every 10 seconds
             setTimeout(getComments, 10000);
@@ -42,26 +42,26 @@ $(document).ready(function () {
     /**
    * Event handler for when the user submits a comment
    */
-    $("#postForm").submit(function(event) {
+    $("#commentForm").submit(function(event) {
         event.preventDefault();
 
-        if(event.target.inputPost.value) {
+        if(event.target.inputComment.value) {
             $.post("/comments/addComment", {
-                comment: event.target.inputPost.value
+                comment: event.target.inputComment.value
             }, function (result) {
                 $("#charRemaining").html(totalCharacters);
                 event.target.reset();
                 getComments();
             });
         } else {
-            $('[data-toggle="popover"]').popover(); //Toggles a popover on the post button
+            $('[data-toggle="popover"]').popover(); //Toggles a popover on the comment button
         }
     });
 
     /**
      * Determines which button to act on i.e. either the Edit or Delete button(MY VERSION)
      */
-    $("#feedPosts").click(function(event) {
+    $("#feedComments").click(function(event) {
         var name = event.target.name;   //Actually the comment id
         var id = event.target.id;       //This is the button element id
 
@@ -115,13 +115,13 @@ $(document).ready(function () {
     $("#btn-count").click(function(event) {
         var options = {};
 
-        if (!showPosts) {
-            $("#feedPosts").show("blind", options, 1000);
-            showPosts = true;
+        if (!showComments) {
+            $("#feedComments").show("blind", options, 1000);
+            showComments = true;
         }
         else {
-            $("#feedPosts").hide("blind", options, 1000);
-            showPosts = false;
+            $("#feedComments").hide("blind", options, 1000);
+            showComments = false;
         }
     });
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +17,9 @@
   <!-- Custom styles for this template -->
   <link href="/stylesheets/main.css" rel="stylesheet">
 
-{{!-- Template for navigated pages --}}
-  <link href="/stylesheets/navstyle.css" rel="stylesheet">
-
   <!-- Fonts from Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
-  
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -48,18 +46,11 @@
           <li>
             <a href="/colleges">Colleges</a>
           </li>
-          <li>
-            <a href="/aboutus">About Us</a>
-          </li>
-          <li>
-            <a href="/feed">Feeds</a>
-          </li>
-          
           <li id="login-li">
             <a href="/login">Login/Sign Up</a>
           </li>
           <li class="hide" id="profile-li">
-            <a href="/profile">Profile</a>
+            <a href="#" id="profile-a">Profile</a>
           </li>
           <li class="hide" id="logout-li">
             <a href="#" id="logout">Logout</a>
@@ -70,8 +61,6 @@
     </div>
   </div>
 
-</div>
-
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
@@ -81,10 +70,8 @@
   <script src="/javascripts/bootstrap.min.js"></script>
   <!--- jQuery --->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-  <!--- jQuery scripts --->
-  <script src="/javascripts/feed.js"></script>
+  <!--- jQuery scripts (Most of them are in their respective hbs files --->
   <script src="/javascripts/auth.js"></script>
-  <script src="/javascripts/page.js"></script>
   <!--- Sweet Alerts --->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.min.js"></script>
   <!--- Javascript Cookies --->
