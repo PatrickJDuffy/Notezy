@@ -13,24 +13,14 @@ router.get('/colleges', function (req, res, next) {
   res.render('list-colleges');
 });
 
-/* GET feed page. */
-router.get('/feed', checkAuth, function (req, res, next) {
-  res.render('feed');
-});
-
 /* GET login/register page. */
 router.get('/login', function (req, res, next) {
   res.render('login');
 });
 
-/* GET about us page. */
-router.get('/aboutus', function (req, res, next) {
-  res.render('aboutus');
-});
-
-/* GET profile page. */
-router.get('/profile', checkAuth, function(req, res, next) {
-  res.render('profile');
-})
+// /* GET profile page. */
+// router.get('/profile', checkAuth, function(req, res, next) {
+//   res.render('profile');
+// })
 
 module.exports = router;

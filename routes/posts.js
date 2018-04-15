@@ -13,7 +13,7 @@ var storage = multer.diskStorage({
     cb(null, './uploads/posts');
   },
   filename: function (req, file, cb) {
-    cb(null, new Date().toISOString() + file.originalname)      //new Date().toISOString() converts the current date to a string
+    cb(null, new Date().toISOString() + ' ' + file.originalname)      //new Date().toISOString() converts the current date to a string
   }
 });
 
@@ -48,7 +48,7 @@ router.get('/', function (req, res, next) {
   res.render('list-posts');
 });
 
-router.get('/createPost', function(req, res, next) {   //Renders the page for the client to create a post
+router.get('/createPost', function (req, res, next) {   //Renders the page for the client to create a post
   res.render('create-post');
 });
 
@@ -82,13 +82,10 @@ router.get('/getPosts', function (req, res, next) {
  * Adds posts to our database
  */
 router.post('/addPost', upload.any(), function (req, res, next) {
-  res.send(req.files);
-  /*var post = new Post(req.body);
+  var post = new Post(req.body);
 
-  if (req.files) {
-    for(var i = 0; i < req.files.length; i++){
-      post.post_file.push(req.files[i].path);
-    }
+  for (var i = 0; i < req.files.length; i++) {
+    post.post_file.push(req.files[i].path);
   }
 
   post.save(function (err, savedPost) {
@@ -99,7 +96,7 @@ router.post('/addPost', upload.any(), function (req, res, next) {
       status: "Successfully added the post",
       id: savedPost._id
     });
-  });*/
+  });
 });
 
 /**
@@ -109,8 +106,8 @@ router.put('/updatePost/:id', upload.single('post_file'), function (req, res, ne
   var id = req.params.id;
 
   if (req.file) {
-    Post.update({ _id: id }, { post_file: req.file.path }, function(err) {
-      if(err)
+    Post.update({ _id: id }, { post_file: req.file.path }, function (err) {
+      if (err)
         res.status(500).json({
           status: "Could not change file path"
         })
@@ -143,7 +140,7 @@ router.delete('/removePost/:id', function (req, res, next) {
   });
 });
 
-router.get('/:post_title', checkPost, function(req, res, next) {        //Checks to see if the post exists and renders the single-post page
+router.get('/:post_title', checkPost, function (req, res, next) {        //Checks to see if the post exists and renders the single-post page
   res.render('single-post');
 });
 

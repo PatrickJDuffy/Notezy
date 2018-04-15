@@ -13,7 +13,7 @@ var storage = multer.diskStorage({
     cb(null, './uploads/college_pics');
   },
   filename: function (req, file, cb) {
-    cb(null, new Date().toISOString() + file.originalname)      //new Date().toISOString() converts the current date to a string
+    cb(null, new Date().toISOString() + ' ' + file.originalname)      //new Date().toISOString() converts the current date to a string
   }
 });
 
