@@ -23,9 +23,9 @@ router.get('/login', function (req, res, next) {
   res.render('login');
 });
 
-/* GET profile page. */
-router.get('/profile', checkAuth, function(req, res, next) {
-  res.render('profile');
-})
+// /* GET profile page. */
+// router.get('/profile', checkAuth, function(req, res, next) {
+//   res.render('profile');
+// })
 
 module.exports = router;

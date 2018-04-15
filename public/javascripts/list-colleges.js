@@ -16,6 +16,10 @@ $(document).ready(function () {
           "<p>" + data[i].description + "</p></figure></a></div>"
       }
 
+      if(colleges === "") {                                          //Alters the heading if there is no colleges
+        $("#colleges").prev().text("There are currently no colleges!");
+      }
+
       $("#colleges").html(colleges);
     });
   }

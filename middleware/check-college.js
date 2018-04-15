@@ -10,9 +10,7 @@ module.exports = function (req, res, next) {
     if (college) {                    //Checks to see if the college exists
       next();
     } else {
-      res.status(500).json({
-        status: "College doesn't exist"
-      })
+      res.render('errors/err-college')
     }
   });
 };

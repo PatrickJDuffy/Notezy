@@ -1,3 +1,5 @@
+var User = "";
+
 $(document).ready(function () {
   var authCookie = Cookies.get('Authorization');
 
@@ -29,9 +31,10 @@ $(document).ready(function () {
           'password': firstPassword
         },
         success: function (token) {
+          User = username;
           swal("Congratulations! You've created a new account");
 
-          setTimeout(function() {
+          setTimeout(function () {
             $(location).attr('href', '/users/' + username);	// Redirect to a login page
           }, 1500)
         },
@@ -50,8 +53,8 @@ $(document).ready(function () {
    * Checks to see if the registration passwords are equal and a minimum of 8 characters
    */
   function checkPasswords(fPassword, sPassword) {
-    if(fPassword === sPassword){
-      if(fPassword.length >= 8){
+    if (fPassword === sPassword) {
+      if (fPassword.length >= 8) {
         return true;
       } else {
         swal('Passwords must be a minimum of 8 characters');
@@ -80,6 +83,7 @@ $(document).ready(function () {
         'password': password
       },
       success: function (token) {
+        User = username;
         $(location).attr('href', '/users/' + username); // Redirect to logged in page
       },
       error: function (errMsg) {
@@ -93,6 +97,7 @@ $(document).ready(function () {
   });
 
   $("#logout").click(function (event) {
+    User = "";
     Cookies.remove('Authorization');
     $(location).attr('href', '/');
   });

@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var checkAuth = require('./middleware/check-auth');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -29,7 +30,6 @@ app.use('/uploads', express.static('uploads'));           //Makes the uploads fo
 app.use('/', index);
 app.use('/users', users);
 app.use('/comments', comments);
-app.use('/posts', posts);
 app.use('/colleges', colleges);
 
 // catch 404 and forward to error handler

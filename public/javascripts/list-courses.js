@@ -21,6 +21,10 @@ $(document).ready(function () {
         }
       }
 
+      if(courses === "") {                                          //Alters the heading if there is no courses
+        $("#courses").prev().text("There are currently no courses for this college!");
+      }
+
       $("#courses").html(courses);
     });
   }
