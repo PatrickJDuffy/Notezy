@@ -6,6 +6,8 @@ $(document).ready(function () {
     event.preventDefault();
 
     var path = window.location.pathname;
+    var domain = window.location.hostname;
+    var port = window.location.port;
     var fields = path.split("/");
     var module = fields[4];                                   //Module code
     var title = event.target.inputPostTitle.value;            //Post title
@@ -23,6 +25,7 @@ $(document).ready(function () {
       formData.append('module_code', module);
       formData.append('post_title', title);
       formData.append('post_content', description);
+      formData.append('post_page', '//' + domain + ':' + port + route + '/' + title);
 
       for (var i = 0; i < files.length; i++) {
         formData.append('file', files[i]);

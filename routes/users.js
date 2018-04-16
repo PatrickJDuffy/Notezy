@@ -10,7 +10,7 @@ var multer = require('multer');         //Module to upload files to the database
  */
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads/college_pics');
+    cb(null, './uploads/user_pics');
   },
   filename: function (req, file, cb) {
     cb(null, new Date().toISOString() + ' ' + file.originalname)      //new Date().toISOString() converts the current date to a string
@@ -41,18 +41,27 @@ var upload = multer({
   fileFilter: fileFilter
 });
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+/**
+ * Returns a single user from our database based on name
+ */
+router.get('/getUserByName/:name', function (req, res, next) {
+  var name = req.params.name;
+
+  User.findOne({ user_name: name }, function (err, user) {
+    if (err)
+      res.status(500).json(err);
+
+    res.status(200).json(user);
+  })
 });
 
 /**
- * Returns a single user from our database(MY VERSION)
+ * Returns a single user from our database based on ID
  */
-router.get('/getUser/:id', function (req, res, next) {
+router.get('/getUserByID/:id', function (req, res, next) {
   var id = req.params.id;
 
-  User.find({ _id: id }, function (err, user) {
+  User.findOne({ _id: id }, function (err, user) {
     if (err)
       res.status(500).json(err);
 
@@ -89,7 +98,7 @@ router.post('/register', function (req, res, next) {
     } else {
       // If there is no user with that username create the user
       var newUser = new User();
-      
+
       //Sets the user's credentials
       newUser.user_name = newUsername;
       newUser.password = newUser.generateHash(newPassword);
@@ -143,18 +152,27 @@ router.post('/login', function (req, res, next) {
 /**
   Updates a user already in the database
  */
-/*router.put('/updateUser/:id', checkAuth, function (req, res, next) {
-    var id = req.params.id;
+router.put('/updateUser/:id', checkAuth, upload.single('profile_pic'), function (req, res, next) {
+  var id = req.params.id;
 
-    User.update({ _id: id }, req.body, function (err) {
-        if (err)
-            res.status(500).json(err);
-
-        res.status(405).json({
-            status: "Successfully updated the user"
-        });
+  if (req.file) {
+    User.update({ _id: id }, { profile_pic: req.file.path }, function (err) {
+      if (err)
+        res.status(500).json({
+          status: "Could not change image path"
+        })
     });
-});*/
+  }
+  
+  User.update({ _id: id }, req.body, function (err) {
+    if (err)
+      res.status(500).json(err);
+
+    res.status(405).json({
+      status: "Successfully updated the user"
+    });
+  });
+});
 
 /**
  * Deletes a user from the database
