@@ -1,2 +1,2 @@
 # Notezy
-# A college project due in 2 weeks that I am ultimately screwed for
+# A Notes sharing site, where people can find notes according to their courses, modules etc.
