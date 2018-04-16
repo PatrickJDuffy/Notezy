@@ -2,19 +2,17 @@ var User = "Anonymous";
 
 $(document).ready(function () {
   var authCookie = Cookies.get('Authorization');
-  var userDetails = Cookies.get('userDetails');
+  var userName = Cookies.get('UserName');
 
   /**
    * Toggles login/logout and profile depending on if there is a Authorization cookie
    */
   if (authCookie) {
+    User = userName;                     //Stores the user's name when they are logged in
     $("#login-li").toggleClass('hide');
     $("#profile-li").toggleClass('hide');
+    $("#profile-a").attr('href', '/users/' + User)
     $("#logout-li").toggleClass('hide');
-  }
-
-  if(userDetails) {
-    User = userDetails;         //Stores the user's name when they are logged in
   }
 
   /**
@@ -36,7 +34,7 @@ $(document).ready(function () {
           'password': firstPassword
         },
         success: function (token) {
-          Cookies.set('userDetails', username);
+          Cookies.set('UserName', username);
           swal("Congratulations! You've created a new account");
 
           setTimeout(function () {
@@ -88,7 +86,7 @@ $(document).ready(function () {
         'password': password
       },
       success: function (token) {
-        Cookies.set('userDetails', username);
+        Cookies.set('UserName', username);
         $(location).attr('href', '/users/' + username); // Redirect to logged in page
       },
       error: function (errMsg) {
@@ -102,7 +100,7 @@ $(document).ready(function () {
   });
 
   $("#logout").click(function (event) {
-    Cookies.remove('userDetails');
+    Cookies.remove('UserName');
     Cookies.remove('Authorization');
     $(location).attr('href', '/');
   });

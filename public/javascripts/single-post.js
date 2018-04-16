@@ -5,24 +5,26 @@ $(document).ready(function () {
    * Retrieves the details of the post
    */
   function getPost() {
-    var path = window.location.pathname
+    var path = window.location.pathname;
+    var domain = window.location.hostname;
+    var port = window.location.port;
 
     $.get(path + '/getPost', function (data) {
-      var date = new Date(data.date_created);
+      var date = new Date(data.date_created);       //Date the post was created
       var files = "";
+
+      if(data.post_file.length > 0) {                 //Shows the container that contains any attached files if there is any
+        $('#post-files-cont').removeClass('hide');
+      }
 
       for (var i = 0; i < data.post_file.length; i++) {
         var fileName = data.post_file[i].substr(data.post_file[i].indexOf(' ') + 1);;
 
-        files += "<a href='//danu7.it.nuigalway.ie:8656/" + data.post_file[i] +
+        files += "<a href='//" + domain + ":" + port + "/" + data.post_file[i] +
           "' class='list-group-item' download>" + fileName + "</a>";
       }
 
-      
-
-      $('#upVotes').html('<h4 class="votes">' + data.up_votes + '</h4>')
-      $('#downVotes').html('<h4 class="votes">' + data.down_votes + '</h4>')
-      $("#postName").text(data.post_title);
+      //Shows the post
       $('#post-title').html('<h2>' + data.post_title + '</h2>')
       $('#post-content').html('<p>' + data.post_content + '</p>')
       $('#post-files').html(files);
