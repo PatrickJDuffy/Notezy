@@ -19,12 +19,7 @@ $(document).ready(function () {
             var comments = "";
 
             for(var i = 0; i < data.length; i++) {
-                comments += "<div class='well'><div class='row'><div class='col-xs-9'>"
-                    + data[i].comment + "</div><div class='col-xs-1'><button type='button' name='" +
-                    data[i]._id + "' class='btn btn-success' id='e-btn'>Edit</button></div><div class='col-xs-1'>" +
-                    "<button type='button' name='" + data[i]._id + "' class='btn btn-danger' id='d-btn'>" + 
-                    "Delete</button></div></div></div></div>";
-            }
+                comments += " <div id='comment'> <div class='row'> <div class='col-sm-8'>" + data[i].comment + "</div> <div class='col-sm-2'> <button type='button' name='" + data[i]._id + "' class='btn btn-success' id='e-btn'>Edit</button> </div> <div class='col-sm-2'>" + " <button type='button' name='" + data[i]._id + "' class='btn btn-danger' id='d-btn'>" + "Delete </button> </div> </div> </div> ";}
 
             $("#feedComments").html(comments);
             $("#count").html(data.length);

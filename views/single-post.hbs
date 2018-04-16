@@ -94,30 +94,66 @@
 
 <div id="bottompagewrap">
   <div class="container-fluid">
-  
-    <div class="container">
-      <div id="post-title">
+
+    <div id="collegewrap">
+      <div id="contentwrap">
+
+        <div id="post-title">
+
+        </div>
+
+
+        <div class="well well-xs">
+          <div class="row">
+            <div class="col-xs-12" id="post-content">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  
+
     <div class="container">
-      <div class="well well-xs">
-        <div class="row">
-          <div class="col-xs-12" id="post-content">
+      <div class="row">
+        <div class="col-lg-7">
+          <h4>Attached Files</h4>
+          <div class="list-group" id="post-files">
+          </div>
+        </div>
+        <div class="col-lg-5">
+
+          <div class="container">
+            <div class="row">
+              <h3>Did you find this helfpful?</h3>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <button> 
+                  {{!-- Updates dataBase --}}
+                  <img src='/uploads/imgs/ups.png' class='votes'>
+                </button>
+                <div id="upVotes"></div>
+              </div>
+
+              <div class="col-lg-3">
+                <button> 
+                  {{!-- Updates dataBase --}}
+                  <img src='/uploads/imgs/downs.png' class='votes'>
+                </button>
+                <div id="downVotes"></div>
+              </div>
+              <div class="col-lg-3">
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  
-    <div class="container">
-      <h4>Attached Files</h4>
-      <div class="list-group" id="post-files">
-      </div>
-    </div>
-  
-    <div class="container col-xs-offset-8" id="post-footer">
-    </div>
   </div>
+
+  <div class="col-xs-offset-8" id="post-footer">
+  </div>
+</div>
 </div>
 
 <hr>
@@ -133,7 +169,7 @@
 
 <br>
 
-<div class="continer">
+<div class="container">
   <div class="row col-sm-8 col-sm-offset-2" id="feedComments">
   </div>
 

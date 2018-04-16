@@ -17,6 +17,11 @@ $(document).ready(function () {
         files += "<a href='//danu7.it.nuigalway.ie:8656/" + data.post_file[i] +
           "' class='list-group-item' download>" + fileName + "</a>";
       }
+
+      
+
+      $('#upVotes').html('<h4 class="votes">' + data.up_votes + '</h4>')
+      $('#downVotes').html('<h4 class="votes">' + data.down_votes + '</h4>')
       $("#postName").text(data.post_title);
       $('#post-title').html('<h2>' + data.post_title + '</h2>')
       $('#post-content').html('<p>' + data.post_content + '</p>')

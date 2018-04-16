@@ -7,55 +7,72 @@
 
       <div class="col-lg-2">
         {{!-- college --}}
-        <a href="#"><h1 class="title">Create Posts</h1></a>
+        <a href="#"><h1 class="title">Create Post</h1></a>
       </div>
 
 
       <div class="col-lg-10">
-        <div id="sitepathwrap" class="">
-          <ul class="breadcrumb">
-            <div class="row">
-              <div class="col-lg-3">
-                <div class="container">
-                  <li class="item home">
-                    <a href="#" title="Get full name of college">
-                      <h5 id="collegeAbbr">
-
-                      </h5>
-                      <div id="collegeabbr"></div>
-                    </a>
-
-                  </li>
-                </div>
-              </div>
-
-              <div class="col-lg-3">
-                <div class="container">
-                  <li class="item home">
-                    <a href="#" title="Get full name of college">
-                      <h5 id="courseName">
-
-                      </h5>
-                    </a>
-
-                  </li>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="container">
-                  <li class="item home">
-                    <a href="#" title="Get full name of college">
-                      <h5 id="moduleCode">
-
-                      </h5>
-                    </a>
-
-                  </li>
-                </div>
+        <ul class="breadcrumb">
+          <div class="row">
+            <div class="col-lg-3">
+              {{!-- College crumb --}}
+              <div class="centered">
+                <li class="item home">
+                  {{!-- Link back to College list --}}
+                  <a id="collegeBack" title="Back to Courses">
+                    <button class="button content">
+                      <span>
+                        <h5 id="collegeAbbr">
+                          {{!-- College Abbrebiation --}}
+                        </h5>
+                      </span>
+                    </button>
+                  </a>
+                </li>
               </div>
             </div>
-          </ul>
-        </div>
+
+            <div class="col-lg-3">
+              {{!-- Course crumb --}}
+              <div class="centered">
+                <li class="item home">
+                  {{!-- Link back to Course Modules --}}
+                  <a id="courseBack" title="Back to Modules">
+                    <button class="button content">
+                      <span>
+                        <h5 id="courseName">
+                          {{!-- Course Code --}}
+                        </h5>
+                      </span>
+                    </button>
+                  </a>
+                </li>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              {{!-- Module crumb --}}
+              <div class="centered">
+                <li class="item home">
+                  {{!-- Link Back to Module Posts --}}
+                  <a id="modBack" title="Back to Posts">
+                    <button class="button content">
+                      <span>
+                        <h5 id="modCode">
+                          {{!-- Module Code --}}
+                        </h5>
+                      </span>
+                    </button>
+                  </a>
+
+                </li>
+              </div>
+            </div>
+            
+              </div>
+            </div>
+          </div>
+        </ul>
+
       </div>
     </div>
   </div>
