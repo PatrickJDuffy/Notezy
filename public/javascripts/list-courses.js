@@ -17,11 +17,7 @@ $(document).ready(function () {
 
       for (var i = 0; i < data.length; i++) {
         if (college === data[i].college_abbreviation) {         //Only adds courses that with the college in the path name
-          courses += "<a href='" + path + "/" +
-            data[i].course_code + "'><div class='panel panel-default'>" +
-            "<div class='panel-heading'>" + data[i].course_name + "</div>" +
-            "<div class='panel-body'>" + data[i].course_code + "</div></div></a>"
-        }
+          courses += " <div id='collegewrap'> <a href='" + path + "/" + data[i].course_code + "'> <div id='contentwrap'> <div class='container'> <div class='row'> <div class='col-lg-4'> <h4 class='course'>" + data[i].course_name + "</h4> </div> <div class='col-lg-4'></div> <div class='col-lg-4'> <h4 class='course'>" + data[i].course_code + "</h4> </div> </div> <div> <h5>" + data[i].course_leader + "</h5> </div> </div> </div> </a> </div>"}
       }
 
       if(courses === "") {                                          //Alters the heading if there is no courses
