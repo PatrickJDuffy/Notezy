@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var id = ""
+  var id = "";
   getUser();
 
   /**
@@ -53,8 +53,8 @@ $(document).ready(function () {
    * Event handler for when the user changes profile pics
    */
   $('#change-profilePic').on('change', function (event) {
-    var file = event.target.files[0]
-    var check = checkFile(file)
+    var file = event.target.files[0];
+    var check = checkFile(file);
 
     if (check) {
       var formData = new FormData();

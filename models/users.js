@@ -6,8 +6,8 @@ require('./util');
 var usersSchema = new Schema({
     user_name: { type: String, required: true },
     password: { type: String, required: true },
-    profile_pic: { type: String,},
-    access_token: { type: String }
+    profile_pic: { type: String},
+    access_token: { type: String },
 });
 
 /*
