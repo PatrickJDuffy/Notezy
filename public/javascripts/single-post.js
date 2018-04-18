@@ -25,10 +25,10 @@ $(document).ready(function () {
 
         $('#post-files').html(files);
       }
-
+      $('#post-title').html(data.post_title);
+      $('#post-Title').html(data.post_title);
       //Shows the post
-      $('#post-title').html('<h2>' + data.post_title + '</h2>')
-      $('#post-content').html('<p>' + data.post_content + '</p>')
+      $('#post-content').html('<p>' + data.post_content + '</p>');
       $('#post-footer').html("<footer class='text-info'> - Posted by " + data.user_name + " on " + date.toDateString() + "</footer>");
     });
   }

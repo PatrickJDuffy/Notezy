@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var totalCharacters = 140;
+  var editTotalCharacters = 140;
   var showComments = true;
 
   var path = window.location.pathname;
@@ -13,9 +14,14 @@ $(document).ready(function () {
    */
   $("#commentForm").keyup(function (event) {
     var inputText = event.target.value;
-    $("#charRemaining").html(totalCharacters - inputText.length);
+    $("#charRemaining").html(editTotalCharacters - inputText.length);
   });
   getComments();
+
+  $("#editCommentForm").keyup(function (event) {
+    var inputText = event.target.value;
+    $("#editCharRemaining").html(totalCharacters - inputText.length);
+  });
 
   /**
    * When the page loads (or is refreshed) we request all comments from the server
@@ -23,11 +29,11 @@ $(document).ready(function () {
   function getComments() {
     $.get("/comments/getComments", function (data) {
       var comments = "";
-      var count  = 0;
+      var count = 0;
 
       for (var i = 0; i < data.length; i++) {
         if (data[i].post_title === title) {
-          comments += " <div id='comment'> <div class='row'> <div class='col-sm-8'>" + data[i].comment + "</div> <div class='col-sm-2'> <button type='button' name='" + data[i]._id + "' class='btn btn-success' id='e-btn'>Edit</button> </div> <div class='col-sm-2'>" + " <button type='button' name='" + data[i]._id + "' class='btn btn-danger' id='d-btn'>" + "Delete </button> </div> </div> </div> ";
+          comments += " <div id='comment'> <div class='row'> <div class='col-sm-8'>" + data[i].comment + "</div> <div class='col-sm-2'> <button type='button' name='" + data[i]._id + "' class='btn btn-success' data-toggle='modal' data-target='#editModal' id='e-btn'>Edit</button> </div> <div class='col-sm-2'>" + " <button type='button' name='" + data[i]._id + "' class='btn btn-danger' id='d-btn'>" + "Delete </button> </div> </div> </div> ";
           count++;
         }
       }
@@ -76,35 +82,35 @@ $(document).ready(function () {
 
     if (name) {
       if (id === "e-btn") {
-        updateComment(event);
+        $("#confirm-edit").click(function (e) {
+          updateComment(name);
+        })
       }
-      else if (id === "d-btn") {
+
+      if (id === "d-btn") {
         deleteComment(name);
       }
     }
   });
 
   /**
-   * Event handler for when the user edits a comment(MY VERSION)
+   * Event handler for when the user edits a comment
    */
-  function updateComment(event) {
-    var newComment = "This is a new comment";
-    var oldComment;
+  function updateComment(id) {
+    if (document.getElementById("inputEditComment").value) {
+      var newComment = document.getElementById("inputEditComment").value
 
-    $.get('/comments/getComment/' + event.target.name, function (data) {
-      oldComment = data[0].comment;
-    });
-
-
-    if (newComment) {
       $.ajax({
-        url: '/comments/updateComment/' + event.target.name,
+        url: '/comments/updateComment/' + id,
         type: 'PUT',
         data: { comment: newComment },
         error: function () {
           getComments();
         }
       });
+    }
+    else {
+      swal('You need to enter a new comment')
     }
   }
 

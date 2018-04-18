@@ -233,14 +233,15 @@ i {
 }
 
 .title {
-    font-family: 'Raleway', Helvetica, Arial, sans-serif;
-    font-size: 50px;
+    /* font-family: 'Raleway', Helvetica, Arial, sans-serif; */
+    font-size: 30px;
     line-height: 30px;
+    color:rgba(0, 0, 0, 0.623);
 }
 
 #bottompagewrap {
 	/* background: url(../img/bg01.jpg) no-repeat center top; */
-	background-color:rgb(53, 23, 94);
+	background-color: #f2f2f2;
 	margin-top: 0px;
     padding: 30px;
     margin-bottom: 0px;
@@ -248,7 +249,8 @@ i {
 	background-attachment: relative;
 	background-position: center center;
 	/*min-height: 650px;*/
-	width: 100%;
+    width: 100%;
+    height: 100%;
 	
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -262,8 +264,8 @@ i {
 }
 
 #collegeButton {
-    background-color:rgb(178, 187, 49);
-    color:rgb(36, 31, 31);
+    background-color:#222222;
+    color: #f2f2f2;
 	/*padding: 100px 100px 100px 100px;*/
 	background-attachment: relative;
 	position: center;
@@ -285,8 +287,8 @@ i {
 }
 
 #contentwrap {
-    background-color:rgb(55, 81, 126);
-    color:rgb(36, 31, 31);
+    background-color:#ed9c28;
+    color:#f2f2f2;
 	background-attachment: local;
 	background-position: center center;
     margin: 0px;
@@ -321,7 +323,7 @@ i {
 }
 
 #collegewrap {
-    background-color:rgba(0, 0, 0, 0.664);
+    background-color:#222222;
 	background-attachment: relative;
 	background-position: center center;
     margin-left: 0px;
