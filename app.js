@@ -10,8 +10,6 @@ var users = require('./routes/users');
 var comments = require('./routes/comments')
 var posts = require('./routes/posts');
 var colleges = require('./routes/colleges');
-var aboutus = require('./routes/aboutus');
-
 var app = express();
 
 // view engine setup
@@ -31,7 +29,6 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/comments', comments);
 app.use('/posts', posts);
-app.use('/aboutus', aboutus);
 app.use('/colleges', colleges);
 
 // catch 404 and forward to error handler
