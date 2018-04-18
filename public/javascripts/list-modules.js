@@ -14,7 +14,9 @@ $(document).ready(function () {
 
       for (var i = 0; i < data.length; i++) {
         if (course === data[i].course_code) {                 //Only adds module that have the course in the path name
-          modules += " <div id='collegewrap'> <a href='" + path + "/" + data[i].module_code + "'> <div id='contentwrap'> <div class='container'> <div class='row'> <div class='col-lg-4'> <h4 class='course'>" + data[i].module_name + "</h4> </div> <div class='col-lg-4'></div> <div class='col-lg-4'> <h4 class='course'>" + data[i].module_code + "</h4> </div> </div> <div> <h5>" + data[i].lecturer + "</h5> </div> </div> </div> </a> </div>" }
+          modules += " <div id='collegewrap'> <a href='" + path + "/" + data[i].module_code + "'> <div id='contentwrap'> <div class='container'> <div class='row'> <div class='col-lg-4'> <h4 class='course'>" + data[i].module_name + "</h4> </div> <div class='col-lg-4'></div> <div class='col-lg-4'> <h4 class='course'>" + data[i].module_code + "</h4> </div> </div> <div class='well well-xs'> <div class='row'> <h5>Course Leader : " + data[i].course_leader + "</h5> </div> </div> </div> </div> </a> </div>"
+        
+        }
       }
 
       if(modules === "") {                                          //Alters the heading if there is no modules
