@@ -247,7 +247,7 @@ i {
 
 #bottompagewrap {
 	/* background: url(../img/bg01.jpg) no-repeat center top; */
-	background-color:rgb(53, 23, 94);
+	background-color: #f2f2f2;
 	margin-top: 0px;
     padding: 30px;
     margin-bottom: 0px;
@@ -270,16 +270,31 @@ i {
 }
 
 #collegeButton {
-    background-color: rgb(178, 187, 49);
-    color: rgb(36, 31, 31);
-    padding: 30px;
+    background-color:#222222;
+    color: #f2f2f2;
+	/*padding: 100px 100px 100px 100px;*/
+	background-attachment: relative;
+	position: center;
+	/*min-height: 650px;*/
+   /* max-width: 100%;
+    height: auto;*/
+    margin: 40px;
+    /* padding: 10px; */
 	border-radius: 15px;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
 #contentwrap {
-    background-color:rgb(55, 81, 126);
-    color:rgb(36, 31, 31);
+    background-color:#ed9c28;
+    color:#f2f2f2;
 	background-attachment: local;
 	background-position: center center;
     margin: 0px;
@@ -314,7 +329,7 @@ i {
 }
 
 #collegewrap {
-    background-color:rgba(0, 0, 0, 0.664);
+    background-color:#222222;
 	background-attachment: relative;
 	background-position: center center;
     margin-left: 0px;
@@ -325,6 +340,7 @@ i {
     -moz-background-size: 100%;
     -o-background-size: 100%;
     background-size: 100%;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
