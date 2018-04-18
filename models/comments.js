@@ -4,6 +4,7 @@ require('./util');
 
 var commentsSchema = new Schema({
     user_name: {type: String},
+    post_title: {type: String},
     comment: {type: String, required: true},
     comment_link: {type: String},
     date_created: {type: Date, default: new Date()},
