@@ -8,6 +8,8 @@ var postsSchema = new Schema({
   post_title: { type: String, required: false },
   post_content: { type: String, required: false },
   post_file: [{ type: String }],
+  post_link: [{ type: String }],
+
   date_created: { type: Date, default: new Date() },
   up_votes: { type: Number, default: 0 },
   down_votes: { type: Number, default: 0 }
