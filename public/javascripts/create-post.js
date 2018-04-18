@@ -25,7 +25,7 @@ $(document).ready(function () {
       formData.append('module_code', module);
       formData.append('post_title', title);
       formData.append('post_content', description);
-      formData.append('post_page', '//' + domain + ':' + port + route + '/' + title);
+      formData.append('post_link', '//' + domain + ':' + port + route + '/' + title);
 
       for (var i = 0; i < files.length; i++) {
         formData.append('file', files[i]);
