@@ -10,7 +10,7 @@ $(document).ready(function () {
     var port = window.location.port;
 
     $.get('/users/getUserByName/' + User, function (data) {
-      var id = data._id;
+      id = data._id;
       $('#profile-name').text(data.user_name);
 
       if (data.profile_pic) {
