@@ -33,8 +33,9 @@ $(document).ready(function () {
 
       for (var i = 0; i < data.length; i++) {
         if (data[i].post_title === title) {
-          comments += " <div id='comment'> <div class='row'> <div class='col-sm-8'>" + data[i].comment + "</div> <div class='col-sm-2'> <button type='button' name='" + data[i]._id + "' class='btn btn-success' data-toggle='modal' data-target='#editModal' id='e-btn'>Edit</button> </div> <div class='col-sm-2'>" + " <button type='button' name='" + data[i]._id + "' class='btn btn-danger' id='d-btn'>" + "Delete </button> </div> </div> Posted by" + data[i].user_name + " at " + data[i].date_created + " </div> ";     
-           count++;
+          var date = new Date(data[i].date_created);
+          comments += " <div id='comment'> <div class='row'> <div class='col-sm-8'>" + data[i].comment + "</div> <div class='col-sm-2'> <button type='button' name='" + data[i]._id + "' class='btn btn-success " + (User === data[i].user_name ? "": "hide") +  "' data-toggle='modal' data-target='#editModal' id='e-btn'>Edit</button> </div> <div class='col-sm-2'>" + " <button type='button' name='" + data[i]._id + "' class='btn btn-danger " + (User === data[i].user_name ? "": "hide") +  "' id='d-btn'>" + "Delete </button> </div> </div> Posted by " + data[i].user_name + " at " + date.toDateString() + " </div> ";     
+          count++;
         }
       }
 

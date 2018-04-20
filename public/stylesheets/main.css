@@ -60,6 +60,18 @@ h4 {
 	font-size: 20px;
 }
 
+h4.course {
+	color: #222222;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+h3.course {
+	color: #222222;
+	font-weight: 400;
+	font-size: 20px;
+}
+
 /* Paragraph & Typographic */
 p {
     line-height: 28px;
